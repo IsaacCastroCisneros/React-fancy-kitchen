@@ -1,0 +1,34 @@
+:root {
+  --titles:"Silkscreen", cursive;
+  --normal:"Manrope", sans-serif;
+  --primary-color:hsl(335deg 25% 32%);
+  --accept:#59df7f;
+  --cancel:#f95db2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+div {
+  display: block;
+}
+
+body {
+  background-color: #272325;
+  color: #fff;
+  height: 100vh;
+  font-family: var(--normal);
+}
+
+.title {
+  font-family: "Silkscreen", cursive;
+}
+
+/*# sourceMappingURL=index.css.map */
