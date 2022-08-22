@@ -49,8 +49,8 @@ export default function Home()
       ingredients:[
         {
           id:uuidv4(),
-          name:'lol',
-          amount:'44'
+          name:'',
+          amount:''
         }
       ]
     }
