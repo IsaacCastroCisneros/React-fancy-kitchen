@@ -1,5 +1,5 @@
 import React,{useContext} from 'react';
-import { RecipeContext } from '..';
+import { RecipeContext } from '../pages/index.js';
 
 export default function recipe(props) 
 {

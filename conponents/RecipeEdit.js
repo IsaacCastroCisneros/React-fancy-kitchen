@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import {v4 as uuidv4} from 'uuid';
 
-import { RecipeContext } from '../index.js';
+import { RecipeContext } from '../pages/index.js';
 import Ingredient from './Ingredient.js';
 
 export default function RecipeEdit({foundRecipe}) 

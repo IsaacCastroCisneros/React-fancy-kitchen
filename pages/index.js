@@ -2,8 +2,8 @@ import Head from 'next/head';
 import {v4 as uuidv4} from "uuid";
 import React,{useState,useEffect} from "react";
 
-import RecipeList from './conponents/RecipeList';
-import RecipeEdit from './conponents/RecipeEdit';
+import RecipeList from '../conponents/RecipeList';
+import RecipeEdit from '../conponents/RecipeEdit';
 
 export const RecipeContext = React.createContext();
 
