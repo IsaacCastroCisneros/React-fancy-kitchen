@@ -1,9 +1,47 @@
 :root {
   --titles:"Silkscreen", cursive;
   --normal:"Manrope", sans-serif;
-  --primary-color:hsl(335deg 25% 32%);
+  --primary-color:rgb(35 40 64);
+  --input-background:rgb(54, 54, 80);
   --accept:#59df7f;
   --cancel:#f95db2;
+  --neutral:rgb(119, 119, 253);
+}
+
+.flex, .ingredient, .ingredient__input-container, .recipes-edit__input-container, .recipe__section, .recipe__button-container, .recipes-block, main {
+  display: flex;
+  align-items: center;
+}
+
+.button, .ingredient__button, .recipes-edit__button, .recipes-edit__add-button, .recipes-container__button, .button-small, .recipe__button {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  font-family: var(--titles);
+  transition: ease-in-out 200ms;
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.3rem;
+}
+.button:hover, .ingredient__button:hover, .recipes-edit__button:hover, .recipes-edit__add-button:hover, .recipes-container__button:hover, .button-small:hover, .recipe__button:hover {
+  filter: brightness(110%);
+}
+
+.button-small, .recipe__button {
+  font-size: 0.8rem;
+}
+
+.input, .ingredient__input, .recipes-edit__input, .recipes-edit__textarea {
+  width: 100%;
+  color: #fff;
+  font-family: var(--normal);
+  background-color: var(--input-background);
+  outline: none;
+  resize: none;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.4rem 0.6rem;
 }
 
 * {
@@ -21,14 +59,166 @@ div {
 }
 
 body {
-  background-color: #272325;
+  background-color: #3e3036;
   color: #fff;
-  height: 100vh;
   font-family: var(--normal);
+  outline: var(--neutral) solid 3px;
 }
 
-.title {
-  font-family: "Silkscreen", cursive;
+main {
+  padding: 0 1rem;
+  height: 100vh;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    height: initial;
+  }
+}
+.recipes-block {
+  background-color: var(--primary-color);
+  align-items: flex-start;
+  width: 55rem;
+  max-width: 100%;
+  padding: 2.5rem;
+}
+.recipes-block > div {
+  padding: 0 0.7rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .recipes-block {
+    flex-direction: column;
+  }
+  .recipes-block > div {
+    width: 100%;
+  }
+}
+.recipes-container {
+  flex: 1;
+}
+.recipes-container__button {
+  background-color: var(--accept);
+  margin-top: 1.2rem;
+}
+
+.recipes-list {
+  min-height: 20rem;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 0.8rem;
+}
+
+.recipe {
+  padding: 1rem 0;
+  border-bottom: #999999 solid 1px;
+}
+.recipe__section {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.recipe__section--row {
+  flex-direction: row;
+}
+.recipe__section--back-ground {
+  background-color: var(--neutral);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.recipe__button-container {
+  margin-left: auto;
+  gap: 0.5rem;
+}
+.recipe__button--neutral {
+  background-color: var(--neutral);
+}
+.recipe__button--cancel {
+  background-color: var(--cancel);
+}
+.recipe__name {
+  display: block;
+  font-family: var(--titles);
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+.recipe__name--small {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.recipe__text-area {
+  background-color: #23242b;
+  color: #fff;
+  font-family: var(--neutral);
+  outline: none;
+  border: none;
+  resize: none;
+  height: 8rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.recipes-edit {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 20rem;
+  max-height: 600px;
+}
+.recipes-edit__button {
+  font-family: initial;
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.5rem;
+  background-color: var(--cancel);
+  font-weight: bolder;
+  margin-left: calc(100% - 29.65px);
+}
+.recipes-edit__input-container {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+.recipes-edit__input:focus, .recipes-edit__textarea:focus {
+  outline: var(--neutral) solid 2px;
+}
+.recipes-edit__input--width, .recipes-edit__textarea--width {
+  width: auto;
+  text-align: center;
+}
+.recipes-edit__textarea {
+  height: 8rem;
+}
+.recipes-edit__subtitle {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.recipes-edit__add-button {
+  background-color: var(--accept);
+}
+
+.ingredient {
+  gap: 1rem;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+.ingredient__container {
+  flex: 1;
+}
+.ingredient__input-container {
+  align-items: flex-start;
+  flex-direction: column;
+}
+.ingredient__button {
+  background-color: var(--cancel);
+  font-size: 2rem;
+  font-family: var(--normal);
 }
 
 /*# sourceMappingURL=index.css.map */

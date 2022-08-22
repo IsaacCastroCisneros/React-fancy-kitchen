@@ -1,0 +1,32 @@
+@use '../util/custom-properties';
+@use '../util/extends';
+
+.ingredient
+{
+   @extend .flex;
+   gap: 1rem;
+   align-items: stretch;
+   margin-bottom: 1rem;
+   
+   &__container
+   {
+      flex: 1;
+   }
+   &__input-container
+   {
+     @extend .flex;
+     align-items: flex-start;
+     flex-direction: column;
+   }
+   &__input
+   {
+      @extend .input;
+   }
+   &__button
+   {
+      @extend .button;
+      background-color: var(--cancel);
+      font-size: 2rem;
+      font-family: var(--normal);
+   }
+}

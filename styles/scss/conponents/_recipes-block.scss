@@ -1,0 +1,30 @@
+@use '../util/custom-properties';
+@use '../util/extends';
+
+.recipes-block
+{
+    @extend .flex;
+    background-color: var(--primary-color);
+    align-items: flex-start;
+    width: 55rem;
+    max-width: 100%;
+    padding: 2.5rem;
+
+    & > div
+    {
+       padding: 0 .7rem;
+    }
+}
+
+@media only screen and (max-width:600px) 
+{
+    .recipes-block
+    {
+      flex-direction: column;
+
+      & > div
+      {
+         width: 100%;
+      }
+    }
+}

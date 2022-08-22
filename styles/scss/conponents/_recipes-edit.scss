@@ -1,0 +1,60 @@
+@use '../util/custom-properties';
+@use '../util/extends';
+
+.recipes-edit
+{
+    flex: 1;
+    overflow-y: auto;
+    min-height: 20rem;
+    max-height: 600px;
+
+    &__button
+    {
+        @extend .button;
+        font-family: initial;
+        color: #fff;
+        padding: .2rem .5rem;
+        font-size: 1.5rem;
+        background-color: var(--cancel);
+        font-weight: bolder;
+        margin-left: calc(100% - 29.65px);
+    }
+    &__input-container
+    {
+        @extend .flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .3rem;
+        width: 100%;
+        margin-bottom: .8rem;
+
+    }
+    &__input,&__textarea
+    {
+        @extend .input;
+
+        &:focus
+        {
+            outline: var(--neutral) solid 2px;
+        }
+        &--width
+        {
+            width: auto;
+            text-align: center;
+        }
+    }
+    &__textarea
+    {
+        height: 8rem;
+    }
+    &__subtitle
+    {
+        display: block;
+        margin-bottom: .5rem;
+    }
+    &__add-button
+    {
+        @extend .button;
+        background-color: var(--accept);
+    }
+}

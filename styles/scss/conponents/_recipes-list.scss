@@ -1,0 +1,94 @@
+@use '../util/extends';
+@use '../util/custom-properties';
+
+.recipes-container
+{
+    flex: 1;
+
+    &__button
+    {
+        @extend .button;
+        background-color: var(--accept);
+        margin-top: 1.2rem;  
+    }
+}
+
+.recipes-list
+{
+    min-height: 20rem;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: .8rem;
+}
+
+.recipe
+{
+    padding: 1rem 0;
+    border-bottom: rgb(153, 153, 153) solid 1px;
+
+    &__section
+    {
+        @extend .flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .2rem;
+        width: 100%;
+        margin-bottom: .5rem;
+
+        &--row
+        {
+            flex-direction: row;
+        }
+        &--back-ground
+        {
+            background-color: var(--neutral);
+            padding: .5rem;
+            border-radius: .5rem;
+        }
+    }
+    &__button-container
+    {
+        @extend .flex;
+        margin-left: auto;
+        gap: .5rem;
+    }
+    &__button
+    {
+        @extend .button-small;
+
+        &--neutral
+        {
+            background-color: var(--neutral);
+        }
+        &--cancel
+        {
+            background-color: var(--cancel);
+        }
+    }
+    &__name
+    {
+        display: block;
+        font-family:var(--titles);
+        font-size: 1.5rem;
+        margin-bottom: .8rem;
+
+        &--small
+        {
+            font-size: 1rem;
+            margin-bottom: .5rem;
+        }
+    }
+    &__text-area
+    {
+        background-color: rgb(35, 36, 43);
+        color: #fff;
+        font-family: var(--neutral);
+        outline: none;
+        border: none;
+        resize: none;
+        height: 8rem;
+        padding: .5rem;
+        width: 100%;
+    }
+}
+

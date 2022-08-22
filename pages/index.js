@@ -1,18 +1,40 @@
 import Head from 'next/head';
 import {v4 as uuidv4} from "uuid";
-import React,{useState,useContext} from "react";
+import React,{useState,useContext,useEffect} from "react";
 
 import RecipeList from './conponents/RecipeList';
+import RecipeEdit from './conponents/RecipeEdit';
 
-const RecipeContext = React.createContext();
+export const RecipeContext = React.createContext();
 
-export default function Home() {
+const LOCAL_STORAGE_KEY = 'recipes';
+
+export default function Home() 
+{
   
-  const[recipes,setRecipes]=useState();
+  const[recipes,setRecipes]=useState([]);
+  const[selectedRecipeId,setSelectedRecipeId]=useState();
+
+  useEffect(()=>
+  {
+    const recipesStorage= localStorage.getItem(LOCAL_STORAGE_KEY);
+    if(recipesStorage!==null)
+    {
+      setRecipes(JSON.parse(recipesStorage))
+    }
+  },[])
+  useEffect(()=>
+  {
+    localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(recipes))
+  },[recipes])
   
+  const foundRecipe = recipes.find(recipe=>recipe.id===selectedRecipeId);
+
   const contextValues=
   {
-    /* createNewRecipe */
+     deleteRecipe,
+     findRecipeByid,
+     updateRecipe
   }
 
   function createNewRecipe()
@@ -21,19 +43,36 @@ export default function Home() {
     {
       id:uuidv4(),
       name:'',
-      servings:'',
+      servings:1,
       cookTime:'',
       instructions:'',
       ingredients:[
         {
           id:uuidv4(),
-          name:'',
-          amount:''
+          name:'lol',
+          amount:'44'
         }
       ]
     }
-
+    
+    setSelectedRecipeId(newRecipe.id)
     recipes ? setRecipes([...recipes,newRecipe]):setRecipes([newRecipe])
+  }
+  function deleteRecipe(id)
+  {
+    if(selectedRecipeId!==null && selectedRecipeId===id)setSelectedRecipeId(undefined)
+    setRecipes(recipes.filter(recipe=>recipe.id!==id))
+  }
+  function findRecipeByid(id)
+  {
+     setSelectedRecipeId(id)
+  }
+  function updateRecipe(id,newRecipe)
+  {
+     const recipesDummy = [...recipes];
+     const index = recipesDummy.findIndex(recipe=>recipe.id===id);
+     recipesDummy[index]=newRecipe;
+     setRecipes(recipesDummy);
   }
 
   return (
@@ -47,12 +86,15 @@ export default function Home() {
         ></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className='main'>
         <RecipeContext.Provider value={contextValues}>
-          <div className="recipes-container">
-            {recipes && <RecipeList recipes={recipes} />}
+          <div className="recipes-block">
+            <div className="recipes-container">
+              {recipes && <RecipeList recipes={recipes} />}
+              <button className='recipes-container__button' onClick={createNewRecipe}>add recipe</button>
+            </div>
+            {foundRecipe && <RecipeEdit foundRecipe={foundRecipe} />} 
           </div>
-          <button onClick={createNewRecipe}>add recipe</button>
         </RecipeContext.Provider>
       </main>
     </div>

@@ -1,2 +1,6 @@
 @forward './general';
-@forward './conponents/recipe-list';
+@forward './util/extends';
+@forward './conponents/recipes-block';
+@forward './conponents/recipes-list';
+@forward './conponents/recipes-edit';
+@forward './conponents/ingredient';

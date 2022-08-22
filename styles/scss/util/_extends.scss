@@ -1,0 +1,42 @@
+@use './custom-properties';
+
+.flex
+{
+    display: flex;
+    align-items: center;
+}
+
+.button,.button-small
+{
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    font-family: var(--titles);
+    transition: ease-in-out 200ms;
+    font-size: 1rem;
+    padding: .5rem .8rem;
+    border-radius: .3rem;
+
+    &:hover
+    {
+        filter: brightness(110%);
+    }
+}
+.button-small
+{
+    
+    font-size: .8rem;
+}
+.input
+{ 
+    width: 100%;
+    color: #fff;
+    font-family: var(--normal);
+    background-color: var(--input-background);
+    outline: none;
+    resize: none;
+    border: none;
+    border-radius: .3rem;
+    padding: .4rem .6rem;
+}
