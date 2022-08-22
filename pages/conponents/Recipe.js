@@ -46,7 +46,7 @@ export default function recipe(props)
             ingredients.map(ingredient=>
             {
                return(
-                  <section className='recipe__section recipe__section--back-ground'>
+                  <section key={id} className='recipe__section recipe__section--back-ground'>
                      <span>
                         <strong>Name: </strong>
                         {ingredient.name}
