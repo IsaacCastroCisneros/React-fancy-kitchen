@@ -78,12 +78,30 @@ main {
     height: initial;
   }
 }
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+}
+.recipes-absolute-block {
+  width: 55rem;
+  max-width: 100%;
+}
+.recipes-absolute-block__banner {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  background-image: linear-gradient(0deg, #c639e2, #fdc7ed);
+  padding: 0.5rem 0;
+  font-family: var(--titles);
+}
+
 .recipes-block {
   background-color: var(--primary-color);
   align-items: flex-start;
-  width: 55rem;
-  max-width: 100%;
+  width: 100%;
   padding: 2.5rem;
+  flex-wrap: wrap;
 }
 .recipes-block > div {
   padding: 0 0.7rem;

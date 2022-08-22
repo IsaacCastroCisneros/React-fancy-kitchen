@@ -1,14 +1,29 @@
 @use '../util/custom-properties';
 @use '../util/extends';
 
+.recipes-absolute-block
+{
+    width: 55rem;
+    max-width: 100%;
+
+    &__banner
+    {
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        background-image: linear-gradient(0deg,rgb(198, 57, 226),rgb(253, 199, 237));
+        padding: .5rem 0;
+        font-family: var(--titles);
+    }
+}
 .recipes-block
 {
     @extend .flex;
     background-color: var(--primary-color);
     align-items: flex-start;
-    width: 55rem;
-    max-width: 100%;
+    width: 100%;
     padding: 2.5rem;
+    flex-wrap: wrap;
 
     & > div
     {

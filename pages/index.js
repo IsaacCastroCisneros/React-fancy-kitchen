@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import {v4 as uuidv4} from "uuid";
-import React,{useState,useContext,useEffect} from "react";
+import React,{useState,useEffect} from "react";
 
 import RecipeList from './conponents/RecipeList';
 import RecipeEdit from './conponents/RecipeEdit';
@@ -86,14 +86,22 @@ export default function Home()
         ></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='main'>
+      <main className="main">
         <RecipeContext.Provider value={contextValues}>
-          <div className="recipes-block">
-            <div className="recipes-container">
-              {recipes && <RecipeList recipes={recipes} />}
-              <button className='recipes-container__button' onClick={createNewRecipe}>add recipe</button>
+          <div className='recipes-absolute-block'>
+          <strong className='recipes-absolute-block__banner'>fancy kitchen</strong>
+            <div className="recipes-block">
+              <div className="recipes-container">
+                {recipes && <RecipeList recipes={recipes} />}
+                <button
+                  className="recipes-container__button"
+                  onClick={createNewRecipe}
+                >
+                  add recipe
+                </button>
+              </div>
+              {foundRecipe && <RecipeEdit foundRecipe={foundRecipe} />}
             </div>
-            {foundRecipe && <RecipeEdit foundRecipe={foundRecipe} />} 
           </div>
         </RecipeContext.Provider>
       </main>
