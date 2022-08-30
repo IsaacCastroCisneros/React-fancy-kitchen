@@ -14,6 +14,7 @@ export default function recipe(props)
     ingredients
   }=props
 
+  console.log(id)
   return (
     <div className='recipe'>
       <section className='recipe__section recipe__section--row'>

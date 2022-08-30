@@ -26,6 +26,7 @@ export default function RecipeEdit({foundRecipe})
   }
   function updateIngredient(id,ingredient)
   {
+    console.log([...foundRecipe.ingredients])
     const newIngredients= [...foundRecipe.ingredients]
     const index = newIngredients.findIndex(ingredient=>ingredient.id===id)
     newIngredients[index]=ingredient;
